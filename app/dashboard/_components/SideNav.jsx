@@ -1,5 +1,6 @@
 "use client";
 import { LibraryBig, LineChart, MessagesSquare, Shield } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 
@@ -37,7 +38,7 @@ export default function SideNav() {
     <div className="h-screen shadow-md border">
       <div className="p-5">
         {menuList.map((menu, index) => (
-          <h2
+          <Link href={menu.path}
             key={index}
             className={`${
               path === menu.path && "text-white bg-primary"
@@ -45,7 +46,7 @@ export default function SideNav() {
           >
             <menu.icon />
             {menu.name}
-          </h2>
+          </Link>
         ))}
         <div className="fixed bottom-10 w-[216px] ">
           <button className="bg-primary hover:bg-blue-700 text-white py-2 px-2 w-full h-full border rounded-lg">
